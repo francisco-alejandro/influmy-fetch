@@ -49,6 +49,7 @@
     "react-component"
   ],
   "eslintConfig": {
+    "ignorePatterns": ["*.test.js"],
     "extends": [
       "./node_modules/influmy-lint/.eslintrc.js"
     ]

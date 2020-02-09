@@ -41,12 +41,16 @@
     "react-dom": "16.12.0",
     "react-test-renderer": "16.12.0"
   },
-  "author": "",
+  "author": "Francisco Alejandro",
   "homepage": "",
   "license": "MIT",
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:francisco-alejandro/influmy-fetch.git"
+  },
   "keywords": [
-    "react-component"
+    "Fetch",
+    "hooks"
   ],
   "eslintConfig": {
     "ignorePatterns": ["*.test.js"],

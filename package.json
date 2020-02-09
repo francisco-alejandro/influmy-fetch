@@ -1,5 +1,5 @@
 {
-  "name": "influmy-fetch",
+  "name": "@influmy/fetch",
   "version": "1.0.0",
   "description": "influmy-fetch React component",
   "main": "lib/index.js",

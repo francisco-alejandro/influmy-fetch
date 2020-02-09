@@ -1,38 +1,37 @@
-import { METHODS } from '../constants'
-import { NotAllowedMethodError } from '../errors'
+import { METHODS } from '../constants';
+import { NotAllowedMethodError } from '../errors';
 
 const headersProvider = headers => {
-    const basicHeaders = {
-        'Content-Type': 'application/json',
-    }
-    if (headers === Object(headers)) {
-        return Object.assign({}, basicHeaders, headers)
-    }
+  const basicHeaders = {
+    'Content-Type': 'application/json',
+  };
+  if (headers === Object(headers)) {
+    return Object.assign({}, basicHeaders, headers);
+  }
 
-    return basicHeaders
-}
+  return basicHeaders;
+};
 
 const methodProvider = method => {
-    const value = METHODS[method]
+  const value = METHODS[method];
 
-    if (!value) {
-        throw new NotAllowedMethodError
-    }
+  if (!value) {
+    throw new NotAllowedMethodError();
+  }
 
-    return value
-}
+  return value;
+};
 
 const optionProvider = ({ method, headers, payload = {} }) => {
-    const options = {
-        method: methodProvider(method),
-        headers: headersProvider(headers),
-    }
-    if (options.method !== METHODS.GET && options.method !== METHODS.DELETE) {
-        options.body = JSON.stringify(payload);
-    }
+  const options = {
+    method: methodProvider(method),
+    headers: headersProvider(headers),
+  };
+  if (options.method !== METHODS.GET && options.method !== METHODS.DELETE) {
+    options.body = JSON.stringify(payload);
+  }
 
-    return options
-}
+  return options;
+};
 
-
-export default optionProvider
+export default optionProvider;

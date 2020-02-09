@@ -1,7 +1,4 @@
-import { useFetch } from './hooks'
-import { METHODS } from './constants'
+import { useFetch } from './hooks';
+import { METHODS } from './constants';
 
-export {
-  useFetch,
-  METHODS,
-}
+export { useFetch, METHODS };

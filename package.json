@@ -17,7 +17,10 @@
     "start": "nwb serve-react-demo",
     "test": "NODE_ENV=test jest --no-cache",
     "test:coverage": "jest --collect-coverage",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "eslint": "./node_modules/.bin/eslint ./src",
+    "format": "npm run prettier -- --write --config ./node_modules/influmy-lint/.prettierrc.js",
+    "prettier": "./node_modules/.bin/prettier \"**/*.{js,jsx,css,json}\""
   },
   "dependencies": {},
   "peerDependencies": {
@@ -30,6 +33,7 @@
     "@babel/preset-react": "7.8.3",
     "@testing-library/react-hooks": "3.2.1",
     "babel-jest": "25.1.0",
+    "influmy-lint": "1.0.16",
     "jest": "25.1.0",
     "jest-fetch-mock": "3.0.1",
     "nwb": "0.23.x",
@@ -43,5 +47,10 @@
   "repository": "",
   "keywords": [
     "react-component"
-  ]
+  ],
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/influmy-lint/.eslintrc.js"
+    ]
+  }
 }

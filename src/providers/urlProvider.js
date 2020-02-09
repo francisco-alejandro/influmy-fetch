@@ -1,11 +1,11 @@
-const urlProvider = ({ url, query = {}}) => {
-    const encondedUrl = url instanceof URL ? url : new URL(url)
+const urlProvider = ({ url, query = {} }) => {
+  const encondedUrl = url instanceof URL ? url : new URL(url);
 
-    for (const key of Object.keys(query)) {
-        encondedUrl.searchParams.append(key, query[key])
-    }
+  for (const key of Object.keys(query)) {
+    encondedUrl.searchParams.append(key, query[key]);
+  }
 
-    return encondedUrl
-}
+  return encondedUrl;
+};
 
-export default urlProvider
+export default urlProvider;

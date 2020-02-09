@@ -14,7 +14,14 @@ jobs:
         with:
           node-version: 12
       - run: npm ci
-      - run: npm run test
+      - run: npm run test:coverage
+      - uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.codecov_token }}
+          file: ./coverage/clover.xml
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: true
 
   publish-npm:
     needs: build
@@ -25,7 +32,6 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
       - run: npm run build
       - run: npm publish
         env:

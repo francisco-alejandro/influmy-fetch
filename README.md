@@ -3,8 +3,8 @@
 
 Hook to make http request in an easy and fancy manner. It uses fetch, so it is light and fast. No over engineering architecture needed. 
 
-```
-import React,{ useEffect } from 'react';
+```javascript
+import React, { useEffect } from 'react';
 import { useFetch, METHODS } from '@influmy/fecth';
 
 const Demo = () => {
@@ -17,9 +17,9 @@ const Demo = () => {
 		callApi({ url, query });
 	}, [callApi]);
 
-	const { isLoading, data } =  res;
-	if  (isLoading)  {
-		return  <p>Loading</p>;
+	const { isLoading, data } = res;
+	if (isLoading)  {
+		return <p>Loading</p>;
 	}
 	
 	return <pre>{JSON.stringify(data)}</pre>;

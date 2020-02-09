@@ -1,9 +1,4 @@
-import React, {Component} from 'react'
+import { useFetch } from './hooks';
+import { METHODS } from './constants';
 
-export default class extends Component {
-  render() {
-    return <div>
-      <h2>Welcome to React components</h2>
-    </div>
-  }
-}
+export { useFetch, METHODS };

@@ -1,15 +1,27 @@
-import React, {Component} from 'react'
-import {render} from 'react-dom'
+import React, { useEffect } from 'react';
+import { render } from 'react-dom';
 
-import Example from '../../src'
+import { useFetch } from '../../src';
 
-class Demo extends Component {
-  render() {
-    return <div>
-      <h1>influmy-fetch Demo</h1>
-      <Example/>
-    </div>
+const Demo = () => {
+  const [res, callApi] = useFetch({});
+
+  useEffect(() => {
+    const query = {
+      postId: 1,
+    };
+    const url = 'https://jsonplaceholder.typicode.com/comments';
+
+    callApi({ url, query });
+  }, [callApi]);
+
+  const { isLoading, data } = res;
+
+  if (isLoading) {
+    return <p>Is loading...</p>;
   }
-}
 
-render(<Demo/>, document.querySelector('#demo'))
+  return <pre>{JSON.stringify(data)}</pre>;
+};
+
+render(<Demo />, document.querySelector('#demo'));

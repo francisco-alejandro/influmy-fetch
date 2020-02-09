@@ -14,6 +14,7 @@ const headersProvider = headers => {
 
 const methodProvider = method => {
     const value = METHODS[method]
+
     if (!value) {
         throw new NotAllowedMethodError
     }

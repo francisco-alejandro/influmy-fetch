@@ -1,31 +1,26 @@
 import { useState, useCallback } from 'react'
 
 import { optionProvider, urlProvider } from '../providers'
-import { RequestError } from '../errors'
 import { METHODS } from '../constants'
 
-const useFetch = ({ url, method = METHODS.GET }) => {
+const useFetch = ({ method = METHODS.GET }) => {
     const [res, setRes] = useState({ data: null, error: null, isLoading: false, status: null })
-    
-    const callAPI = useCallback(async ({ headers, query, payload }) => {
+
+    const callAPI = useCallback(async ({ url, headers, query, payload }) => {
         const options = optionProvider({ method, headers, payload })
         const encondedUrl = urlProvider({ url, query })
-
-        setRes(prevState => ({ ...prevState, isLoading: true }))
+        
+        setRes({ data: null, error: false, isLoading: true, status: null })
 
         try {
-            const response = await fetch(encondedUrl, options)
+            const response = await fetch(encondedUrl.toJSON(), options)
+            const data = await response.json()
 
-            if (response.ok) {
-                const data = await response.json()
-                setRes({ data, isLoading: false, error: null, status: response.status })
-            } else {
-                throw new RequestError(response.status)
-            }
+            setRes({ data, isLoading: false, error: !response.ok, status: response.status })
         } catch (error) {
-            setRes({ data: null, isLoading: false, error, status: error.status || 500 })
+            setRes({ data: null, isLoading: false, error:true, status: null })
         }
-    }, [url, method])
+    }, [])
 
     return [res, callAPI]
 }

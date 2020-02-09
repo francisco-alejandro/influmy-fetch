@@ -7,12 +7,11 @@ const Demo  = () => {
   const query = {
     postId: 1,
   }
-  const [res, callApi] = useFetch({
-    url: 'https://jsonplaceholder.typicode.com/comments',
-  })
+  const url = 'https://jsonplaceholder.typicode.com/comments'
+  const [res, callApi] = useFetch({})
 
   useEffect(() => {
-    callApi({ query })
+    callApi({ url, query })
   }, [])
 
   const { isLoading, data } = res

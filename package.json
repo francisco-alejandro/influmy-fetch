@@ -46,7 +46,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:francisco-alejandro/influmy-fetch.git"
+    "url": "git@github.com:influmy/influmy-fetch.git"
   },
   "keywords": [
     "Fetch",

@@ -51,5 +51,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - run: npm ci
       - run: npm run build
+      - run : echo @influmy:registry=https://npm.pkg.github.com/ >> .npmrc
       - run: npm publish
 

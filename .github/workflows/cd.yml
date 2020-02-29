@@ -32,6 +32,8 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
+      - run: npm ci
+      - run: npm run build
       - run: npm publish --access=public
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
@@ -47,5 +49,7 @@ jobs:
       - uses: jgierer12/npm-auth-gpr@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+      - run: npm ci
+      - run: npm run build
       - run: npm publish
 

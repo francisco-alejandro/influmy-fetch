@@ -1,6 +1,6 @@
 {
   "name": "@influmy/fetch",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "influmy-fetch React component",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -44,10 +44,7 @@
   "author": "Francisco Alejandro",
   "homepage": "",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:influmy/influmy-fetch.git"
-  },
+  "repository": "https://github.com/influmy/fetch",
   "keywords": [
     "Fetch",
     "hooks"
